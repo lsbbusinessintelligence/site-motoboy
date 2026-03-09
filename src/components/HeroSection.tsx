@@ -96,80 +96,42 @@ const HeroSection = () => (
             </div>
           </div>
           
-          {/* Avatar Grande do Motoboy */}
-          <div className="relative">
-            <svg width="340" height="400" viewBox="0 0 340 400" className="drop-shadow-2xl">
-              {/* Sombra no chão */}
-              <ellipse cx="170" cy="380" rx="90" ry="20" fill="#00000020"/>
-              
-              {/* Moto - Parte de trás */}
-              <ellipse cx="130" cy="340" rx="28" ry="28" fill="#1f2937" stroke="#374151" strokeWidth="3"/>
-              <circle cx="130" cy="340" r="14" fill="#6b7280"/>
-              <circle cx="130" cy="340" r="8" fill="#9ca3af"/>
-              
-              {/* Moto - Corpo */}
-              <path d="M 130 340 Q 150 320 180 310 L 200 310 L 210 330 L 200 340 Z" fill="#dc2626" stroke="#991b1b" strokeWidth="2"/>
-              <rect x="180" y="305" width="25" height="8" rx="2" fill="#1f2937"/>
-              
-              {/* Moto - Guidão */}
-              <line x1="185" y1="310" x2="190" y2="295" stroke="#374151" strokeWidth="3"/>
-              <line x1="180" y1="295" x2="200" y1="295" stroke="#6b7280" strokeWidth="2"/>
-              
-              {/* Moto - Roda dianteira */}
-              <ellipse cx="220" cy="340" rx="28" ry="28" fill="#1f2937" stroke="#374151" strokeWidth="3"/>
-              <circle cx="220" cy="340" r="14" fill="#6b7280"/>
-              <circle cx="220" cy="340" r="8" fill="#9ca3af"/>
-              
-              {/* Pernas do motoboy */}
-              <rect x="140" y="280" width="18" height="50" fill="#1e3a8a" rx="8"/>
-              <rect x="162" y="280" width="18" height="48" fill="#1e40af" rx="8"/>
-              
-              {/* Botas */}
-              <ellipse cx="149" cy="330" rx="11" ry="8" fill="#0f172a"/>
-              <ellipse cx="171" cy="328" rx="11" ry="8" fill="#0f172a"/>
-              
-              {/* Corpo */}
-              <ellipse cx="170" cy="240" rx="45" ry="55" fill="#dc2626"/>
-              
-              {/* Jaqueta - Listras refletivas */}
-              <rect x="130" y="220" width="80" height="4" rx="2" fill="#fbbf24" opacity="0.9"/>
-              <rect x="130" y="250" width="80" height="4" rx="2" fill="#fbbf24" opacity="0.9"/>
-              
-              {/* Braços */}
-              <ellipse cx="130" cy="240" rx="16" ry="42" fill="#dc2626" transform="rotate(-20 130 240)"/>
-              <ellipse cx="210" cy="240" rx="16" ry="42" fill="#b91c1c" transform="rotate(20 210 240)"/>
-              
-              {/* Mãos nas luvas */}
-              <ellipse cx="120" cy="270" rx="12" ry="10" fill="#0f172a"/>
-              <ellipse cx="220" cy="270" rx="12" ry="10" fill="#0f172a"/>
-              
-              {/* Pescoço */}
-              <rect x="155" y="178" width="30" height="20" fill="#c2855c" rx="5"/>
-              
-              {/* Cabeça */}
-              <ellipse cx="170" cy="160" rx="38" ry="42" fill="#a67c52"/>
-              
-              {/* Capacete - Base */}
-              <ellipse cx="170" cy="140" rx="42" ry="45" fill="#dc2626"/>
-              
-              {/* Capacete - Viseira */}
-              <ellipse cx="170" cy="145" rx="35" ry="28" fill="#1e293b" opacity="0.7"/>
-              <ellipse cx="170" cy="145" rx="32" ry="25" fill="#0f172a" opacity="0.5"/>
-              
-              {/* Capacete - Reflexo na viseira */}
-              <ellipse cx="165" cy="140" rx="12" ry="8" fill="#ffffff" opacity="0.3"/>
-              
-              {/* Capacete - Detalhes */}
-              <path d="M 145 125 Q 170 115 195 125" stroke="#fbbf24" strokeWidth="3" fill="none"/>
-              <circle cx="155" cy="135" r="3" fill="#fbbf24"/>
-              <circle cx="185" cy="135" r="3" fill="#fbbf24"/>
-              
-              {/* Bag de entregas nas costas */}
-              <rect x="195" y="210" width="35" height="45" rx="4" fill="#059669" stroke="#047857" strokeWidth="2"/>
-              <rect x="200" y="215" width="25" height="3" rx="1" fill="#10b981"/>
-              <rect x="200" y="225" width="25" height="3" rx="1" fill="#10b981"/>
-              <text x="212" y="242" fontSize="16" fill="#ffffff" fontWeight="bold" textAnchor="middle">📦</text>
-            </svg>
+          {/* Avatar Grande do Motoboy com efeito 70% real + 30% desenho */}
+          <div className="bg-gradient-to-br from-orange-50 to-red-100 rounded-3xl shadow-2xl p-8 max-w-md">
+            <div className="relative overflow-hidden rounded-2xl">
+              <img 
+                src="/images/avatar-motoboy.png" 
+                alt="Motoboy LSB" 
+                className="w-full h-auto shadow-lg"
+                style={{
+                  filter: 'contrast(1.25) saturate(1.4) brightness(1.05)',
+                  imageRendering: '-webkit-optimize-contrast',
+                }}
+              />
+              {/* Overlay sutil para efeito ilustrado */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,107,53,0.08) 0%, rgba(220,38,38,0.08) 100%)',
+                  mixBlendMode: 'overlay'
+                }}
+              />
+            </div>
+            
+            {/* Depoimento */}
+            <div className="mt-6 text-center">
+              <div className="flex justify-center gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-xl">⭐</span>
+                ))}
+              </div>
+              <p className="text-gray-800 font-semibold text-base mb-2">
+                "Motoboy rápido e profissional!"
+              </p>
+              <p className="text-gray-600 text-sm">
+                Cliente via LSB Intelligence
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
